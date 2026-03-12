@@ -1,19 +1,13 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Factory/utility class that generates and supplies software systems to be evaluated.
- * All access is via a class-level (static) method — no instantiation needed.
- */
+
 public class SWSystemData {
 
     // Prevent instantiation
     private SWSystemData() {}
 
-    /**
-     * Returns a map of category → list of software systems.
-     * The map is keyed by category name (e.g. "Web", "Mobile", "Enterprise").
-     */
+
     public static HashMap<String, ArrayList<SWSystem>> getAllSystems() {
         HashMap<String, ArrayList<SWSystem>> map = new HashMap<>();
 
@@ -138,3 +132,4 @@ public class SWSystemData {
         return s;
     }
 }
+
