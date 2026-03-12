@@ -1,16 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Entry point for the ISO/IEC 25010 Software Quality Evaluation tool.
- *
- * Steps performed:
- *  1. Load all systems via SWSystemData.getAllSystems()
- *  2. Retrieve the "Web" category systems from the HashMap
- *  3. Select the "ShopSphere" system
- *  4. Inject the ISO/IEC 25023 test values (setMeasuredValue)
- *  5. Print the quality evaluation report
- */
+
 public class Main {
 
     public static void main(String[] args) {
@@ -89,3 +80,4 @@ public class Main {
         shopSphere.printReport();
     }
 }
+
