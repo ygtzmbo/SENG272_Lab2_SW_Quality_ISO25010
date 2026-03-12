@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 
-/**
- * Represents an ISO/IEC 25010 quality characteristic (e.g. Reliability).
- * Contains multiple ISO/IEC 25023 metrics (Criterion objects).
- */
+
 public class QualityDimension {
 
     private String name;
@@ -80,3 +77,4 @@ public class QualityDimension {
         return String.format("--- %s [%s] (Weight: %d) ---", name, isoCode, weight);
     }
 }
+
