@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.Locale;
 
-/**
- * Represents a software system being evaluated against ISO/IEC 25010 quality model.
- */
+
 public class SWSystem {
 
     private String name;
@@ -36,11 +34,7 @@ public class SWSystem {
         dimensions.add(dimension);
     }
 
-    /**
-     * Calculates the overall quality score of the system by aggregating all
-     * dimension scores weighted by their respective dimension weights.
-     * overallScore = Σ(dimensionScore × dimensionWeight) / Σ(dimensionWeights)
-     */
+
     public double calculateOverallScore() {
         double weightedSum = 0.0;
         double totalWeight = 0.0;
@@ -52,9 +46,7 @@ public class SWSystem {
         return weightedSum / totalWeight;
     }
 
-    /**
-     * Returns the quality label for the overall score.
-     */
+ 
     public String getOverallQualityLabel() {
         double score = calculateOverallScore();
         if (score >= 4.5) return "Excellent Quality";
@@ -63,10 +55,7 @@ public class SWSystem {
         return "Poor Quality";
     }
 
-    /**
-     * Finds and returns the quality dimension with the lowest calculated score.
-     * This is the primary improvement area for the evaluated software system.
-     */
+
     public QualityDimension findWeakestDimension() {
         QualityDimension weakest = null;
         double lowestScore = Double.MAX_VALUE;
@@ -80,9 +69,7 @@ public class SWSystem {
         return weakest;
     }
 
-    /**
-     * Prints the structured ISO/IEC 25010 evaluation report to the console.
-     */
+ 
     public void printReport() {
         System.out.println("========================================");
         System.out.println("SOFTWARE QUALITY EVALUATION REPORT (ISO/IEC 25010)");
@@ -90,7 +77,7 @@ public class SWSystem {
         System.out.println("========================================");
 
         for (QualityDimension d : dimensions) {
-            System.out.println(d.toString()); // --- Name [Code] (Weight: N) ---
+            System.out.println(d.toString()); // --- Name  (Weight: N) ---
             for (Criterion c : d.getCriteria()) {
                 System.out.println(c.toString()); // metric line
             }
@@ -123,3 +110,4 @@ public class SWSystem {
         return String.format("%s v%s (%s)", name, version, category);
     }
 }
+
