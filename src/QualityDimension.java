@@ -15,28 +15,25 @@ public class QualityDimension {
         this.criteria = new ArrayList<>();
     }
 
-    // ---------- Getters ----------
+    //  Getters
 
     public String getName()    { return name; }
     public String getIsoCode() { return isoCode; }
     public int    getWeight()  { return weight; }
     public ArrayList<Criterion> getCriteria() { return criteria; }
 
-    // ---------- Setters ----------
+    //  Setters 
 
     public void setName(String name)       { this.name = name; }
     public void setIsoCode(String isoCode) { this.isoCode = isoCode; }
     public void setWeight(int weight)      { this.weight = weight; }
 
-    /** Adds a criterion (metric) to this quality dimension. */
+
     public void addCriterion(Criterion criterion) {
         criteria.add(criterion);
     }
 
-    /**
-     * Calculates the dimension score as the weighted average of all metrics.
-     * dimensionScore = Σ(metricScore × metricWeight) / Σ(weights)
-     */
+
     public double calculateDimensionScore() {
         double weightedSum = 0.0;
         double totalWeight = 0.0;
@@ -48,14 +45,7 @@ public class QualityDimension {
         return weightedSum / totalWeight;
     }
 
-    /**
-     * Returns a quality label based on the dimension score.
-     *
-     * 4.5 – 5.0 → Excellent Quality
-     * 3.5 – 4.4 → Good Quality
-     * 2.5 – 3.4 → Needs Improvement
-     * 1.0 – 2.4 → Poor Quality
-     */
+ 
     public String getQualityLabel() {
         double score = calculateDimensionScore();
         if (score >= 4.5) return "Excellent Quality";
@@ -64,10 +54,7 @@ public class QualityDimension {
         return "Poor Quality";
     }
 
-    /**
-     * Returns the quality gap: difference between the maximum possible score (5.0)
-     * and the current dimension score.
-     */
+
     public double getQualityGap() {
         return 5.0 - calculateDimensionScore();
     }
